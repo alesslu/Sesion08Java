@@ -5,6 +5,13 @@ $.validator.addMethod("terminaEn",function(value, element,parametro){
     return false;
 }, "Debe terminar por {0}")
 
+$.validator.addMethod("comienzaCon",function(value, element,parametro){
+    if (value.startsWith(parametro)){
+        return true;
+    }
+    return false;
+}, "Debe comenzar con {0}")
+
 
 $("#form").validate({
     rules: {
@@ -37,6 +44,7 @@ $("#form").validate({
             number: true,
             minlength:9,
             maxlength: 9,
+            comienzaCon: 9
         },
 
         mensaje: {
